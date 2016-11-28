@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccess.Dal
+{
+    public static class DalFactory
+    {
+        private static Type _dalType;
+
+        public static IDalManager GetManager()
+        {
+            if (_dalType == null)
+            {
+                var dalTypeName = ConfigurationManager.AppSettings["DalSecurityManagerType"];
+                if (!string.IsNullOrEmpty(dalTypeName))
+                    _dalType = Type.GetType(dalTypeName);
+                else
+                    throw new NullReferenceException("DalSecurityManagerType");
+                if (_dalType == null)
+                    throw new ArgumentException(string.Format("Type {0} could not be found", dalTypeName));
+            }
+            return (IDalManager)Activator.CreateInstance(_dalType);
+        }
+    }
+}

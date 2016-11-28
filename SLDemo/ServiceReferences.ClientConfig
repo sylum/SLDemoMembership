@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <system.serviceModel>
+      <bindings>
+        <basicHttpBinding>
+          <binding name="basicHttpBinding_IWcfPortal"
+                   maxBufferSize="2147483647"
+                   maxReceivedMessageSize="2147483647"
+                   receiveTimeout="00:40:00"
+                   sendTimeout="00:40:00"
+                   openTimeout="00:40:00"
+                   closeTimeout="00:40:00">
+          </binding>
+        </basicHttpBinding>
+      </bindings>
+        <client>
+          <!--IIS -->  
+          <endpoint address="http://localhost:52090/SlPortal.svc"
+              binding="basicHttpBinding" bindingConfiguration="basicHttpBinding_IWcfPortal"
+              contract="WcfPortal.IWcfPortal" name="BasicHttpBinding_IWcfPortal" />
+          
+        </client>
+    </system.serviceModel>
+</configuration>
