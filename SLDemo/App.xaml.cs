@@ -29,8 +29,8 @@ namespace SilverlightUI
             Csla.DataPortalClient.WcfProxy.DefaultEndPoint = "BasicHttpBinding_IWcfPortal";
 
             //this.RootVisual = new MainPage();
-            this.RootVisual = new AuthForm();
-            //this.RootVisual = new UserEdit();
+           // this.RootVisual = new AuthForm();
+            this.RootVisual = new UserEdit();
         }
 
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
