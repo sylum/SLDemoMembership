@@ -37,7 +37,8 @@ namespace Library
         public static PropertyInfo<string> PasswordProperty = RegisterProperty<string>(c => c.Password);
         [Display(Name = "Password")]
         [Required]
-        [StringLength(128, MinimumLength = 6)]
+        //[StringLength(128, MinimumLength = 6)]
+        [RegularExpression(@"(?=^.{8,12}$)(?=(?:.*?\d){2})(?=(?:.*?[a-z]){2})(?=(?:.*?[A-Z]){2})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%*()_+^&]*$")]
         public string Password
         {
             get { return GetProperty(PasswordProperty); }
